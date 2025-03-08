@@ -7,7 +7,7 @@ function Home() {
                 I'm a passionate developer focused on creating beautiful, functional web applications.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-background rounded-lg shadow-xl p-6">
+                <div className="bg-background rounded-lg shadow-2xl p-6 border-cyan-800 border-2">
                     <h2 className="text-xl font-semibold mb-3">My Skills</h2>
                     <ul className="list-disc pl-5">
                         <li>React & TypeScript</li>
@@ -16,7 +16,7 @@ function Home() {
                         <li>And more...</li>
                     </ul>
                 </div>
-                <div className="bg-background rounded-lg shadow-xl p-6">
+                <div className="bg-background rounded-lg shadow-2xl p-6 border-cyan-800 border-2">
                     <h2 className="text-xl font-semibold mb-3">Featured Projects</h2>
                     <p>Check out my work in the projects section!</p>
                 </div>

@@ -91,6 +91,10 @@ export default {
 			},
 			backgroundSize: {
 				'grid': '100% 100%, 100% 100%, 75px 75px, 75px 75px',
+			},
+
+			boxShadow: {
+				"deep-shadow": "rgb(38, 57, 77) 0px 20px 50px -10px"
 			}
 
 		}
