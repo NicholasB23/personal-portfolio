@@ -1,5 +1,3 @@
-// src/components/ProjectCard.tsx
-import { useState } from "react";
 import {
     Card,
     CardContent,

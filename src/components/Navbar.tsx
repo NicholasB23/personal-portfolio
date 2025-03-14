@@ -1,11 +1,10 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { ThemeContext } from './ThemeProvider';
 import {
     Moon,
     Sun,
     Menu,
-    X,
     Home,
     User,
     FolderGit2,
@@ -14,17 +13,12 @@ import {
 import { Button } from './ui/button';
 import {
     NavigationMenu,
-    NavigationMenuContent,
     NavigationMenuItem,
-    NavigationMenuLink,
     NavigationMenuList,
-    NavigationMenuTrigger,
-    navigationMenuTriggerStyle,
 } from "./ui/navigation-menu";
 import {
     Sheet,
     SheetContent,
-    SheetDescription,
     SheetHeader,
     SheetTitle,
     SheetTrigger,

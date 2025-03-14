@@ -69,11 +69,16 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				"draw-circle": {
+					"0%": { strokeDashoffset: "307" },
+					"100%": { strokeDashoffset: "0" },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'draw-circle': 'draw-circle 0.8s ease-in-out forwards',
 			},
 			backgroundImage: {
 				'grid-pattern': `
