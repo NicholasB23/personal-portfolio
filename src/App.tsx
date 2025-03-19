@@ -8,12 +8,11 @@ import Layout from './components/Layout';
 import { ThemeProvider } from './components/ThemeProvider';
 
 // Pages
-import Home from './pages/HomePage';
+import HomePage from './pages/HomePage';
 import About from './pages/AboutPage';
 import Projects from './pages/ProjectsPage';
 import Contact from './pages/ContactPage';
 import NotFound from './pages/NotFoundPage';
-
 
 
 function App() {
@@ -22,7 +21,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Layout />}>
-                        <Route index element={<Home />} />
+                        <Route index element={<HomePage />} />
                         <Route path="about" element={<About />} />
                         <Route path="projects" element={<Projects />} />
                         <Route path="contact" element={<Contact />} />

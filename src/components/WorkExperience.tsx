@@ -13,7 +13,7 @@ type WorkItemProps = {
 
 const workExperiences: WorkItemProps[] = [
     {
-        title: "Personal Development",
+        title: "Professional Development",
         company: "Independent",
         period: "2023 — Present",
         description: "Build and maintain critical components used to construct Klaviyo's frontend, across the whole product. Work closely with cross-functional teams, including developers, designers, and product managers, to implement and advocate for best practices in web accessibility.",
@@ -78,18 +78,16 @@ const WorkItem = ({ title, company, period, description, technologies }: WorkIte
 
 const WorkExperience = () => {
     const handleResumeClick = () => {
-        // Open resume PDF in a new tab
-        // Replace "/path/to/your/resume.pdf" with the actual path to your resume PDF
         window.open("/Resume.pdf", "_blank");
     };
 
     return (
-        <div className="py-16">
-            <div className="container mx-auto px-4">
+        <div className="">
+            <div className="container">
                 <h2 className="text-4xl font-bold mb-16 text-center text-primary md:text-left md:max-w-3xl md:ml-auto md:mr-8 lg:mr-16">
                     Work Experience
                 </h2>
-                <div className="md:max-w-3xl md:ml-auto md:mr-8 lg:mr-16 border-l border-border/40 pl-0 md:pl-6">
+                <div className="md:max-w-3xl md:ml-auto border-l border-border/40 pl-0 md:pl-6">
                     {workExperiences.map((work, index) => (
                         <WorkItem key={index} {...work} />
                     ))}

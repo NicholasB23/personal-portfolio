@@ -22,9 +22,9 @@ const useScrollResponsive = (): ScrollResponseValues => {
         let scrollDivisor = 2; // Default (medium screens)
 
         if (isBreakpoint(ScreenSize.XXL) || isBreakpoint(ScreenSize.XL)) {
-            scrollDivisor = 1; // Fastest movement on very large screens
+            scrollDivisor = 8; // Fastest movement on very large screens
         } else if (isBreakpoint(ScreenSize.LG)) {
-            scrollDivisor = 1.5; // Faster movement on large screens
+            scrollDivisor = 2; // Faster movement on large screens
         } else if (isBreakpoint(ScreenSize.MD)) {
             scrollDivisor = 2; // Default medium movement
         } else {
@@ -42,12 +42,12 @@ const useScrollResponsive = (): ScrollResponseValues => {
         let scrollImpact: number;
 
         if (isBreakpoint(ScreenSize.XXL)) {
-            baseSize = 120; // Larger base size for extra large screens
-            minSize = 80;   // Larger minimum size
+            baseSize = 96; // Larger base size for extra large screens
+            minSize = 64;   // Larger minimum size
             scrollImpact = 0.12; // Stronger scroll effect
         } else if (isBreakpoint(ScreenSize.XL)) {
-            baseSize = 112;
-            minSize = 76;
+            baseSize = 64;
+            minSize = 50;
             scrollImpact = 0.11;
         } else if (isBreakpoint(ScreenSize.LG)) {
             baseSize = 104;
@@ -104,7 +104,7 @@ const useScrollResponsive = (): ScrollResponseValues => {
 
     // Determine if the content should be fixed (sticky) based on scroll position
     // After scrolling 200px, it will become fixed
-    const isFixed = scrollY > 200;
+    const isFixed = scrollY > 180;
 
     // Check if we're at least at medium breakpoint
     const isMediumScreen = isBreakpoint(ScreenSize.MD);

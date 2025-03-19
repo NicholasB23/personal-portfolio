@@ -1,4 +1,3 @@
-
 export interface Project {
     id: number;
     title: string;
@@ -8,4 +7,5 @@ export interface Project {
     image: string;
     githubUrl?: string;
     liveUrl?: string;
+    featured: boolean;  // New property to mark featured projects
 }
