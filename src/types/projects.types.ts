@@ -7,5 +7,6 @@ export interface Project {
     image: string;
     githubUrl?: string;
     liveUrl?: string;
-    featured: boolean;  // New property to mark featured projects
+    featured: boolean;
+    keyFeatures: string[];  // New property for key features
 }
