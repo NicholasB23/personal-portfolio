@@ -57,7 +57,8 @@ interface SkillCategoryProps {
 
 const SkillCategory = ({ category, skills, index }: SkillCategoryProps) => {
     const categoryRef = useRef<HTMLDivElement>(null);
-    const isInView = useInView(categoryRef, { threshold: 0.2 });
+    const isInView = useInView(categoryRef as React.RefObject<HTMLElement>, { threshold: 0.2 });
+
 
     return (
         <div
@@ -75,7 +76,7 @@ const SkillCategory = ({ category, skills, index }: SkillCategoryProps) => {
                     <Badge
                         key={skillIndex}
                         variant="secondary"
-                        className={`bg-secondary/30 hover:bg-secondary/50 text-foreground py-1.5 px-3 text-sm
+                        className={`bg-secondary hover:bg-secondary/50 text-foreground py-1.5 px-3 text-sm
                             ${isInView ? 'animate-slide-in-right opacity-100' : 'opacity-0'}
                         `}
 

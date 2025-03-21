@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { ThemeContext } from './ThemeProvider';
 import {
@@ -23,15 +23,22 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "./ui/sheet";
+import ContactPopup from './ContactPopup';
 
 function Navbar() {
     const { darkMode, toggleDarkMode } = useContext(ThemeContext);
+    const [isContactOpen, setIsContactOpen] = useState(false);
 
     const navLinkClass = ({ isActive }: { isActive: boolean }) => {
         return `flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive
             ? 'bg-primary text-primary-foreground'
             : 'text-muted-foreground hover:text-foreground hover:bg-accent'
             }`;
+    };
+
+    const handleContactClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+        setIsContactOpen(true);
     };
 
     return (
@@ -55,23 +62,30 @@ function Navbar() {
                                             <span>Home</span>
                                         </NavLink>
                                     </NavigationMenuItem>
-                                    <NavigationMenuItem>
-                                        <NavLink to="/about" className={({ isActive }) => navLinkClass({ isActive })}>
-                                            <User size={18} />
-                                            <span>About</span>
-                                        </NavLink>
-                                    </NavigationMenuItem>
+
                                     <NavigationMenuItem>
                                         <NavLink to="/projects" className={({ isActive }) => navLinkClass({ isActive })}>
                                             <FolderGit2 size={18} />
                                             <span>Projects</span>
                                         </NavLink>
                                     </NavigationMenuItem>
+
                                     <NavigationMenuItem>
-                                        <NavLink to="/contact" className={({ isActive }) => navLinkClass({ isActive })}>
+                                        <NavLink to="/about" className={({ isActive }) => navLinkClass({ isActive })}>
+                                            <User size={18} />
+                                            <span>About</span>
+                                        </NavLink>
+                                    </NavigationMenuItem>
+
+                                    <NavigationMenuItem>
+                                        <a
+                                            href="#"
+                                            onClick={handleContactClick}
+                                            className={navLinkClass({ isActive: false })}
+                                        >
                                             <Send size={18} />
                                             <span>Contact</span>
-                                        </NavLink>
+                                        </a>
                                     </NavigationMenuItem>
                                 </NavigationMenuList>
                             </NavigationMenu>
@@ -144,18 +158,14 @@ function Navbar() {
                                             <FolderGit2 size={18} />
                                             <span>Projects</span>
                                         </NavLink>
-                                        <NavLink
-                                            to="/contact"
-                                            className={({ isActive }) =>
-                                                `flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium ${isActive
-                                                    ? 'bg-primary text-primary-foreground'
-                                                    : 'text-muted-foreground hover:text-foreground hover:bg-accent'
-                                                }`
-                                            }
+                                        <a
+                                            href="#"
+                                            onClick={handleContactClick}
+                                            className="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent"
                                         >
                                             <Send size={18} />
                                             <span>Contact</span>
-                                        </NavLink>
+                                        </a>
                                     </div>
                                 </SheetContent>
                             </Sheet>
@@ -163,6 +173,9 @@ function Navbar() {
                     </div>
                 </div>
             </div>
+
+            {/* ContactPopup with controlled open state */}
+            <ContactPopup isOpen={isContactOpen} setIsOpen={setIsContactOpen} />
         </nav>
     );
 }

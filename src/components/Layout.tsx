@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { ThemeContext } from './ThemeProvider';
 import Navbar from './Navbar';
 import { Outlet } from 'react-router-dom';
+import ContactPopup from './ContactPopup';
 
 // Removed grid background: bg-grid-pattern dark:bg-grid-pattern-dark bg-grid
 
@@ -15,6 +16,7 @@ function Layout() {
             <main className="flex-grow">
                 <div className="min-h-full ">
                     <Outlet />
+                    <ContactPopup />
                 </div>
             </main>
         </div>

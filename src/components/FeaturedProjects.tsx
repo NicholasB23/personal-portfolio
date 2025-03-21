@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { ArrowRight, Github, ExternalLink } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
 import { Link, useNavigate } from 'react-router-dom';
 import useInView from './hooks/useInView';

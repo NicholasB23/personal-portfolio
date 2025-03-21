@@ -90,7 +90,7 @@ const HomePage = () => {
                 <div className="w-full lg:sticky lg:top-16 lg:flex lg:h-[calc(100vh-4rem)] lg:w-2/5 lg:flex-col">
                     {/* Main header and description */}
                     <div className="mb-8 pt-24 lg:pt-24">
-                        <h1 className="text-4xl md:text-5xl font-bold text-center md:text-left mb-4 bg-gradient-to-r from-primary to-cyan-500 bg-clip-text text-transparent">
+                        <h1 className="text-4xl md:text-5xl font-bold text-center md:text-left mb-4 bg-gradient-to-r from-primary to-primary-darker bg-clip-text text-transparent">
                             Nicholas Bonorden
                         </h1>
                         <p className="text-muted-foreground text-xl text-center md:text-left">
@@ -98,7 +98,7 @@ const HomePage = () => {
                         </p>
 
                         <div className="flex flex-wrap gap-4 my-4 justify-center md:justify-start">
-                            <a href="/projects" className="px-6 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors">
+                            <a href="/projects" className="px-6 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90">
                                 View Projects
                             </a>
                             <a href="/contact" className="px-6 py-3 border border-border bg-background hover:bg-accent transition-colors rounded-md">

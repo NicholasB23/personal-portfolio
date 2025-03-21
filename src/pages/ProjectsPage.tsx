@@ -17,7 +17,7 @@ function Projects() {
     const [expandedProjectId, setExpandedProjectId] = useState<number | null>(null);
     const [activeFilters, setActiveFilters] = useState<string[]>([]);
     const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
-    const projectRefs = useRef<{ [key: number]: HTMLDivElement | null }>({});
+    const projectRefs = useRef<Record<number, HTMLDivElement | null>>({});
 
     // Get unique technologies from all projects
     const allTechnologies = Array.from(
@@ -26,16 +26,17 @@ function Projects() {
 
     // Get the expanded project ID from the location state if available
     useEffect(() => {
-        const state = location.state as LocationState;
-        if (state && state.expandedProjectId) {
+        const state = location.state as LocationState | null;
+        if (state && state.expandedProjectId !== undefined) {
             setExpandedProjectId(state.expandedProjectId);
 
             // Scroll to the expanded project
             setTimeout(() => {
-                if (projectRefs.current[state.expandedProjectId]) {
-                    projectRefs.current[state.expandedProjectId]?.scrollIntoView({
+                const projectId = state.expandedProjectId;
+                if (projectId !== undefined && projectRefs.current[projectId]) {
+                    projectRefs.current[projectId]?.scrollIntoView({
                         behavior: 'smooth',
-                        block: 'center' // Changed from 'start' to 'center' to align vertically in the middle
+                        block: 'center'
                     });
                 }
             }, 100);
@@ -54,7 +55,7 @@ function Projects() {
                 if (projectRefs.current[projectId]) {
                     projectRefs.current[projectId]?.scrollIntoView({
                         behavior: 'smooth',
-                        block: 'center' // Changed from 'start' to 'center' to align vertically in the middle
+                        block: 'center'
                     });
                 }
             }, 100);
@@ -171,7 +172,9 @@ function Projects() {
 
                             return (
                                 <div
-                                    ref={el => projectRefs.current[project.id] = el}
+                                    ref={(el) => {
+                                        projectRefs.current[project.id] = el;
+                                    }}
                                     key={project.id}
                                     className={`transition-all duration-500 ease-in-out ${isFullWidth ? 'lg:col-span-2' : ''
                                         }`}

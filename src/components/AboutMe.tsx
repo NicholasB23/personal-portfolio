@@ -5,7 +5,7 @@ import useInView from './hooks/useInView';
 
 const AboutMe = () => {
     const containerRef = useRef<HTMLDivElement>(null);
-    const isInView = useInView(containerRef, { threshold: 0.1 });
+    const isInView = useInView(containerRef as React.RefObject<HTMLElement>, { threshold: 0.1 });
     const [isAnimated, setIsAnimated] = useState(false);
 
     // Trigger animation when component comes into view
