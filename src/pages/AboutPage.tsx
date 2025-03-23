@@ -1,6 +1,5 @@
 // src/components/AboutMe.tsx
 import { useRef, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import useInView from '../components/hooks/useInView';
 import { Mail, Linkedin, ExternalLink } from 'lucide-react';
 import { SiGithub } from "@icons-pack/react-simple-icons";
@@ -56,9 +55,18 @@ const AboutMe = () => {
                         {/* Profile picture with border animation */}
                         <div className="relative mb-8">
                             <div className={`w-64 h-64 rounded-full border-4 border-primary p-2 transition-all duration-700 ${isAnimated ? 'scale-100' : 'scale-95'}`}>
-                                <div className="w-full h-full rounded-full bg-cover bg-center overflow-hidden"
-                                    style={{ backgroundImage: "url('https://placehold.co/400x400/005F73/fff?text=NB')" }}>
-                                    {/* Replace with your actual profile picture */}
+                                <div
+                                    className="w-full h-full rounded-full overflow-hidden"
+                                    style={{
+                                        position: "relative"
+                                    }}
+                                >
+                                    {/* Replace the background-image approach with an actual image for better control */}
+                                    <img
+                                        src="public/0e90d528-ea12-4c77-b9d8-7184bfd161db.jpg"
+                                        alt="Nicholas Bonorden"
+                                        className="absolute w-[120%] h-[120%] object-cover"
+                                    />
                                 </div>
                             </div>
 
@@ -95,7 +103,7 @@ const AboutMe = () => {
                                     className={`flex items-center gap-3 p-3 rounded-lg transition-all ${link.color} ${link.hoverColor} transform hover:scale-102 ${isAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                                     style={{ transitionDelay: `${index * 150 + 500}ms`, transitionDuration: '400ms' }}
                                 >
-                                    <div className="p-2 bg-white rounded-full dark:bg-gray-950">
+                                    <div className="p-2 bg-white rounded-full dark:bg-gray-100">
                                         {link.icon}
                                     </div>
                                     <span className="font-medium">{link.name}</span>
@@ -133,9 +141,7 @@ const AboutMe = () => {
                             <div className={`transition-all duration-500 ${isAnimated ? 'opacity-100' : 'opacity-0'}`}
                                 style={{ transitionDelay: '200ms' }}>
                                 <p className="text-foreground/90 text-lg">
-                                    I'm a passionate full-stack developer with over 5 years of experience building modern,
-                                    responsive web applications and mobile solutions. My journey in software development
-                                    started with curiosity and has evolved into expertise.
+                                    I'm a passionate full-stack developer with over six years of experience crafting modern, responsive web applications and mobile solutions. My journey into software development started with curiosity and has evolved into a deep expertise in building intuitive, high-performance applications. Whether it's designing seamless user experiences or optimizing backend systems, I thrive on solving complex problems with elegant solutions.
                                 </p>
                             </div>
 
@@ -143,10 +149,15 @@ const AboutMe = () => {
                                 style={{ transitionDelay: '400ms' }}>
                                 <h3 className="text-xl font-semibold mb-3">My Approach</h3>
                                 <p className="text-foreground/90">
-                                    I specialize in React, TypeScript, and various backend technologies, always focused on
-                                    writing clean, maintainable code that solves real problems. I believe in building intuitive
-                                    interfaces that provide exceptional user experiences while maintaining robust functionality
-                                    behind the scenes.
+                                    I specialize in JavaScript (React and TypeScript), Python, and various infrastructure technologies. I'm always striving to write clean, maintainable code that balances efficiency with scalability. My philosophy is simple: build software that is not only functional but also delightful to use. I focus on user experience, performance, and code quality, ensuring every project I work on is both reliable and engaging. Collaboration is at the heart of my workflow, and I enjoy working closely with designers, product teams, and fellow developers to bring ideas to life.
+                                </p>
+                            </div>
+
+                            <div className={`transition-all duration-500 ${isAnimated ? 'opacity-100' : 'opacity-0'}`}
+                                style={{ transitionDelay: '600ms' }}>
+                                <h3 className="text-xl font-semibold mb-3">What Drives Me</h3>
+                                <p className="text-foreground/90">
+                                    I believe in continuous learning and innovation. Technology is always evolving, and I love the challenge of keeping up with the latest advancements while refining my skills. My goal is to build impactful, user-centric solutions that make a difference, whether through cutting-edge web applications, automation tools, or interactive experiences.
                                 </p>
                             </div>
 
@@ -154,20 +165,14 @@ const AboutMe = () => {
                                 style={{ transitionDelay: '600ms' }}>
                                 <h3 className="text-xl font-semibold mb-3">Beyond Coding</h3>
                                 <p className="text-foreground/90">
-                                    When I'm not coding, you'll find me hiking in nature, reading books on technology and philosophy,
-                                    or experimenting with new frameworks and libraries. I believe in continuous learning
-                                    and personal growth, which keeps me excited about the ever-evolving tech landscape.
+                                    When I’m not immersed in code, you’ll probably find me hiking in nature, reading books on technology or SciFi, or experimenting with new frameworks and libraries. I have a passion for automation and tool development, always looking for ways to make workflows more efficient. I also enjoy sharing my passion for technology with others in my personal circle; whether it's teaching friends to code, organizing game jams, or giving crash courses on subjects within my expertise.
                                 </p>
                             </div>
 
                             <div className={`transition-all duration-500 ${isAnimated ? 'opacity-100' : 'opacity-0'}`}
                                 style={{ transitionDelay: '800ms' }}>
                                 <div className="flex gap-4 mt-8">
-                                    <Link to="/projects">
-                                        <Button className="bg-primary/90 hover:bg-primary text-white">
-                                            View My Projects
-                                        </Button>
-                                    </Link>
+                                    {/* Link to blog when its up */}
                                 </div>
                             </div>
                         </div>

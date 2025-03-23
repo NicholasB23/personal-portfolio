@@ -9,20 +9,24 @@ type SkillCategory = {
 
 const skillCategories: SkillCategory[] = [
     {
-        category: "Programming Languages",
-        skills: ["JavaScript", "TypeScript", "Python", "Dart", "Java", "HTML", "CSS"]
+        category: "Languages & APIs",
+        skills: ["JavaScript", "TypeScript", "CSS", "Python", "SQL", "REST APIs"]
     },
     {
-        category: "Frameworks & Libraries",
-        skills: ["React", "NextJS", "Flutter", "Express", "Flask", "TailwindCSS"]
+        category: "Libraries & Frameworks",
+        skills: ["React", "Flask", "TailwindCSS", "Vite", "Terraform"]
     },
     {
-        category: "Tools & Platforms",
-        skills: ["Git", "AWS", "Firebase", "Docker", "Figma", "Storybook"]
+        category: "Development Tools & Platforms",
+        skills: ["Git", "AWS", "CloudFlare", "Docker", "Linux", "Postman"]
     },
     {
-        category: "Databases",
-        skills: ["PostgreSQL", "MongoDB", "SQLite", "MySQL", "Firestore"]
+        category: "Databases & Data Management",
+        skills: ["PostgreSQL", "SQLite", "MySQL", "MongoDB"]
+    },
+    {
+        category: "Core Competencies",
+        skills: ["Communication & Collaboration", "Technical Documentation", "Problem-Solving & Troubleshooting", "User Experience & Support", "Process Automation & Optimization"]
     }
 ];
 
@@ -34,7 +38,7 @@ const SkillsSection = () => {
                     Skills & Expertise
                 </h2>
 
-                <div className="md:max-w-3xl md:ml-auto md:mr-8 lg:mr-16">
+                <div className="md:max-w-3xl md:ml-auto">
                     {skillCategories.map((category, index) => (
                         <SkillCategory
                             key={index}

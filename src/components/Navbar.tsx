@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { ThemeContext } from './ThemeProvider';
 import {
@@ -16,18 +16,24 @@ import {
     NavigationMenuItem,
     NavigationMenuList,
 } from "./ui/navigation-menu";
-import {
-    Sheet,
-    SheetContent,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
-} from "./ui/sheet";
 import ContactPopup from './ContactPopup';
 
 function Navbar() {
     const { darkMode, toggleDarkMode } = useContext(ThemeContext);
     const [isContactOpen, setIsContactOpen] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (isMenuOpen && !event.target.closest('.md\\:hidden')) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, [isMenuOpen]);
 
     const navLinkClass = ({ isActive }: { isActive: boolean }) => {
         return `flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive
@@ -47,8 +53,8 @@ function Navbar() {
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
                         <div className="flex-shrink-0">
-                            <Link to="/" className="text-foreground font-bold text-xl flex items-center">
-                                Portfolio
+                            <Link to="/" className="text-primary font-bold text-2xl flex items-center">
+                                Nick's Portfolio
                             </Link>
                         </div>
 
@@ -107,20 +113,25 @@ function Navbar() {
                             )}
                         </Button>
 
-                        {/* Mobile Menu */}
-                        <div className="md:hidden">
-                            <Sheet>
-                                <SheetTrigger asChild>
-                                    <Button variant="ghost" size="icon">
-                                        <Menu className="h-6 w-6" />
-                                        <span className="sr-only">Open menu</span>
-                                    </Button>
-                                </SheetTrigger>
-                                <SheetContent side="right">
-                                    <SheetHeader>
-                                        <SheetTitle>Menu</SheetTitle>
-                                    </SheetHeader>
-                                    <div className="flex flex-col gap-4 mt-4">
+                        {/* Mobile Navigation */}
+                        <div className="md:hidden relative">
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                                aria-expanded={isMenuOpen}
+                                aria-controls="mobile-menu"
+                            >
+                                <Menu className="h-6 w-6" />
+                                <span className="sr-only">Open menu</span>
+                            </Button>
+
+                            {isMenuOpen && (
+                                <div
+                                    id="mobile-menu"
+                                    className="absolute right-0 mt-2 w-48 py-2 bg-background border border-border rounded-md shadow-lg animate-in fade-in slide-in-from-top-5 z-50"
+                                >
+                                    <div className="flex flex-col p-2">
                                         <NavLink
                                             to="/"
                                             className={({ isActive }) =>
@@ -130,6 +141,7 @@ function Navbar() {
                                                 }`
                                             }
                                             end
+                                            onClick={() => setIsMenuOpen(false)}
                                         >
                                             <Home size={18} />
                                             <span>Home</span>
@@ -142,6 +154,7 @@ function Navbar() {
                                                     : 'text-muted-foreground hover:text-foreground hover:bg-accent'
                                                 }`
                                             }
+                                            onClick={() => setIsMenuOpen(false)}
                                         >
                                             <User size={18} />
                                             <span>About</span>
@@ -154,21 +167,25 @@ function Navbar() {
                                                     : 'text-muted-foreground hover:text-foreground hover:bg-accent'
                                                 }`
                                             }
+                                            onClick={() => setIsMenuOpen(false)}
                                         >
                                             <FolderGit2 size={18} />
                                             <span>Projects</span>
                                         </NavLink>
                                         <a
                                             href="#"
-                                            onClick={handleContactClick}
+                                            onClick={(e) => {
+                                                handleContactClick(e);
+                                                setIsMenuOpen(false);
+                                            }}
                                             className="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent"
                                         >
                                             <Send size={18} />
                                             <span>Contact</span>
                                         </a>
                                     </div>
-                                </SheetContent>
-                            </Sheet>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>

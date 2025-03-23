@@ -97,12 +97,9 @@ const HomePage = () => {
                             Software Engineer | Full Stack Developer
                         </p>
 
-                        <div className="flex flex-wrap gap-4 my-4 justify-center md:justify-start">
-                            <a href="/projects" className="px-6 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90">
+                        <div className="flex flex-wrap gap-4 mt-4 justify-center md:justify-start">
+                            <a href="/projects" className="px-12 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90">
                                 View Projects
-                            </a>
-                            <a href="/contact" className="px-6 py-3 border border-border bg-background hover:bg-accent transition-colors rounded-md">
-                                Contact Me
                             </a>
                         </div>
                     </div>
@@ -138,7 +135,7 @@ const HomePage = () => {
                             <section
                                 id={section.id}
                                 className={`transition-opacity duration-500
-                ${activeSection === section.id ? 'opacity-100' : 'opacity-80'}`}
+                                    ${activeSection === section.id ? 'opacity-100' : 'opacity-80'}`}
                             >
                                 {section.component}
                                 {index < sections.length - 1

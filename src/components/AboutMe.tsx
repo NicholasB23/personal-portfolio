@@ -27,25 +27,16 @@ const AboutMe = () => {
                     <div>
                         <h2 className="text-4xl font-bold mb-8 text-primary relative">
                             About Me
-                            {/* Animated underline */}
-                            <span className={`absolute bottom-0 left-0 h-1 bg-primary transition-all duration-1500 ease-in-out
-                                ${isAnimated ? 'w-[105px]' : 'w-0'
-                                }`} style={{ transitionDelay: '600ms' }}>
-                            </span>
                         </h2>
 
                         <div className={`space-y-4 transition-all duration-500 ${isAnimated ? 'opacity-100' : 'opacity-0'
                             }`} style={{ transitionDelay: '200ms' }}>
                             <p className="text-foreground/90">
-                                I'm a passionate full-stack developer with over 5 years of experience building modern,
-                                responsive web applications and mobile solutions. My journey in software development
-                                started with curiosity and has evolved into expertise.
+                                Hey there! I'm a software engineer and problem-solver with a passion for building smart, efficient, and user-friendly solutions. I don’t just write code—I focus on creating impact through thoughtful development, automation, and problem-solving.
                             </p>
 
                             <p className="text-foreground/90">
-                                I specialize in React, TypeScript, and various backend technologies, always focused on
-                                writing clean, maintainable code that solves real problems. I'm constantly learning
-                                and adapting to new technologies to deliver the best possible solutions.
+                                With experience across different domains, I adapt quickly to new challenges, whether it’s developing scalable applications, optimizing workflows, or enhancing user experiences. I love finding creative ways to make technology work better, bridging the gap between technical solutions and real-world needs. No matter the project, I bring a customer-focused mindset, a drive for continuous learning, and a willingness to step in wherever I’m needed.
                             </p>
 
                             <p className="text-foreground/90">

@@ -7,7 +7,7 @@ type WorkItemProps = {
     title: string;
     company: string;
     period: string;
-    description: string;
+    description: string | string[]; // Now accepts either a string or array of strings
     technologies: string[];
 };
 
@@ -16,29 +16,50 @@ const workExperiences: WorkItemProps[] = [
         title: "Professional Development",
         company: "Independent",
         period: "2023 — Present",
-        description: "Build and maintain critical components used to construct Klaviyo's frontend, across the whole product. Work closely with cross-functional teams, including developers, designers, and product managers, to implement and advocate for best practices in web accessibility.",
-        technologies: ["JavaScript", "TypeScript", "React", "Storybook"],
+        description: [
+            "-Continuously developing and launching personal projects, including this portfolio site and my tower game, to refine my skills in full-stack development and game design.",
+            "-Expanding my expertise in TypeScript and object-oriented programming to write more scalable and maintainable code.",
+            "-Enhancing my DevOps and infrastructure knowledge by working with CI/CD pipelines, Docker, AWS, and Cloudflare to improve deployment efficiency and system reliability.",
+            "-Actively exploring new technologies and best practices to stay ahead in the ever-evolving tech landscape."
+        ],
+        technologies: ["JavaScript", "TypeScript", "React", "Python"],
     },
     {
         title: "Product Manager",
         company: "Bulb Inc",
         period: "2021 — 2022",
-        description: "Built and maintained various web applications. Assisted in designing database schemas and implementing RESTful APIs.",
+        description: [
+            "-Worked cross-functionally with developers, sales teams, and stakeholders to deliver products that met and exceeded client expectations.",
+            "-Bridged the gap between technical and business needs by gathering feedback, defining requirements, and translating user stories into actionable tasks.",
+            "-Led high-quality product rollouts, ensuring seamless deployments that were on time and within budget.",
+            "-Designed and implemented integrations with external systems, documenting procedures for efficiency and scalability.",
+            "-Managed Jira workflows, triaging tickets, prioritizing tasks, and leading daily stand-ups to keep development aligned and agile."
+        ],
         technologies: ["Jira", "Figma"],
     },
     {
         title: "IT Specialist/System Administrator",
         company: "Bulb Inc",
         period: "2017 — 2021",
-        description: "Built and maintained interal tooling. Designed and wrote automation scripts.",
-        technologies: ["JavaScript", "React", "Python", "Postgres", "AWS"],
+        description: [
+            "-Developed and maintained internal tooling and automation to enhance support team efficiency, building full-stack web applications with custom APIs and SQL databases.",
+            "-Implemented CI/CD workflows, automating deployments to AWS for seamless and reliable application delivery.",
+            "-Maintained a separate reporting database, enabling custom views and relationships outside the primary DB for more flexible insights.",
+            "-Designed and optimized SQL queries and reports for the support team, implementing automation and dashboards for streamlined data analysis."
+        ],
+        technologies: ["JavaScript", "React", "Python", "Postgres", "AWS", "APIs"],
     },
     {
         title: "Customer Support Specialist",
         company: "Bulb Inc",
         period: "2016 — 2017",
-        description: "Built and maintained various web applications. Assisted in designing database schemas and implementing RESTful APIs.",
-        technologies: ["Zendesk", "Jira", "PHP", "MySQL", "Bootstrap"],
+        description: [
+            "-Resolved customer tickets efficiently, collaborating with the development team to diagnose and fix technical issues.",
+            "-Created clear and concise training and support documentation for both internal teams and customers.",
+            "-Provided hands- on training to customers, both on - site and remotely, ensuring smooth onboarding and product adoption.",
+            "-Mentored new employees, training them on systems and procedures while handling high - complexity support cases."
+        ],
+        technologies: ["Zendesk", "Jira", "MySQL"],
     },
 ];
 
@@ -61,7 +82,16 @@ const WorkItem = ({ title, company, period, description, technologies }: WorkIte
                     <p className="text-lg text-muted-foreground">{company}</p>
                 </div>
 
-                <p className="mb-6 text-foreground/80">{description}</p>
+                {/* Description - now handles both string and array formats */}
+                {Array.isArray(description) ? (
+                    <div className="mb-6 text-foreground/80 space-y-2">
+                        {description.map((paragraph, index) => (
+                            <p key={index}>{paragraph}</p>
+                        ))}
+                    </div>
+                ) : (
+                    <p className="mb-6 text-foreground/80">{description}</p>
+                )}
 
                 <div className="flex flex-wrap gap-2">
                     {technologies.map((tech) => (
