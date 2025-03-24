@@ -56,7 +56,7 @@ const ContactPopup = ({ isOpen: externalIsOpen, setIsOpen: externalSetIsOpen }: 
         },
         {
             name: "GitHub",
-            icon: <SiGithub color="default" className="w-5 h-5" />,
+            icon: <SiGithub color="default" className="w-5 h-5 dark:fill-white" />,
             href: "https://github.com/NicholasB23",
             color: "bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400",
             hoverColor: "hover:bg-gray-200 dark:hover:bg-gray-700",
@@ -89,7 +89,7 @@ const ContactPopup = ({ isOpen: externalIsOpen, setIsOpen: externalSetIsOpen }: 
 
                 <Dialog.Portal>
                     <Dialog.Overlay className="fixed inset-0 bg-black/50 backdrop-blur-sm animate-in fade-in-0" />
-                    <Dialog.Content className="fixed w-full max-w-md p-6 -translate-x-1/2 -translate-y-1/2 bg-white shadow-xl left-1/2 top-1/2 dark:bg-gray-900 rounded-xl animate-in fade-in-0 zoom-in-95">
+                    <Dialog.Content className="fixed w-full max-w-md p-6 -translate-x-1/2 -translate-y-1/2 bg-white shadow-xl left-1/2 top-1/2 dark:bg-background rounded-xl animate-in fade-in-0 zoom-in-95">
                         <div className="flex items-center justify-between mb-6">
                             <div>
                                 <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-darker">

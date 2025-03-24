@@ -129,13 +129,29 @@ function ProjectCard({ project, isExpanded, onToggleExpand }: ProjectCardProps) 
 
                                 <div className="flex flex-wrap gap-3">
                                     {project.githubUrl && (
-                                        <Button variant="outline" size="sm" className="gap-2">
+                                        <Button
+                                            variant="outline"
+                                            size="sm"
+                                            className="gap-2"
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                window.open(project.githubUrl, '_blank');
+                                            }}
+                                        >
                                             <Github size={16} />
                                             <span>View Code</span>
                                         </Button>
                                     )}
                                     {project.liveUrl && (
-                                        <Button variant="outline" size="sm" className="gap-2">
+                                        <Button
+                                            variant="outline"
+                                            size="sm"
+                                            className="gap-2"
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                window.open(project.liveUrl, '_blank');
+                                            }}
+                                        >
                                             <ExternalLink size={16} />
                                             <span>Live Demo</span>
                                         </Button>

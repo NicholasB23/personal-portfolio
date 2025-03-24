@@ -63,7 +63,7 @@ const AboutMe = () => {
                                 >
                                     {/* Replace the background-image approach with an actual image for better control */}
                                     <img
-                                        src="public/0e90d528-ea12-4c77-b9d8-7184bfd161db.jpg"
+                                        src="headshot.jpg"
                                         alt="Nicholas Bonorden"
                                         className="absolute w-[120%] h-[120%] object-cover"
                                     />

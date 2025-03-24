@@ -94,7 +94,7 @@ function Projects() {
 
                     {/* Filters Section */}
                     <div className="relative">
-                        <div className="flex justify-between items-center mb-4">
+                        <div className="flex justify-between items-center mb-4 min-h-[2rem]">
                             <h2 className="text-xl font-semibold">Project Filters</h2>
                             {activeFilters.length > 0 && (
                                 <Button

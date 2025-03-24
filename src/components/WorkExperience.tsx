@@ -15,7 +15,7 @@ const workExperiences: WorkItemProps[] = [
     {
         title: "Professional Development",
         company: "Independent",
-        period: "2023 — Present",
+        period: "2024 — Present",
         description: [
             "-Continuously developing and launching personal projects, including this portfolio site and my tower game, to refine my skills in full-stack development and game design.",
             "-Expanding my expertise in TypeScript and object-oriented programming to write more scalable and maintainable code.",
@@ -27,7 +27,7 @@ const workExperiences: WorkItemProps[] = [
     {
         title: "Product Manager",
         company: "Bulb Inc",
-        period: "2021 — 2022",
+        period: "2021 — 2023",
         description: [
             "-Worked cross-functionally with developers, sales teams, and stakeholders to deliver products that met and exceeded client expectations.",
             "-Bridged the gap between technical and business needs by gathering feedback, defining requirements, and translating user stories into actionable tasks.",

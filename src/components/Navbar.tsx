@@ -26,7 +26,9 @@ function Navbar() {
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (isMenuOpen && !event.target.closest('.md\\:hidden')) {
+            // Fix for errors: Cast to Element type which has the closest() method
+            const target = event.target as Element;
+            if (isMenuOpen && target && !target.closest('.md\\:hidden')) {
                 setIsMenuOpen(false);
             }
         };
@@ -53,8 +55,8 @@ function Navbar() {
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
                         <div className="flex-shrink-0">
-                            <Link to="/" className="text-primary font-bold text-2xl flex items-center">
-                                Nick's Portfolio
+                            <Link to="/" className="text-primary font-bold text-xl flex items-center">
+                                NickB's Portfolio
                             </Link>
                         </div>
 
