@@ -27,7 +27,7 @@ const workExperiences: WorkItemProps[] = [
     {
         title: "Product Manager",
         company: "Bulb Inc",
-        period: "2021 — 2023",
+        period: "2022 — 2023",
         description: [
             "-Worked cross-functionally with developers, sales teams, and stakeholders to deliver products that met and exceeded client expectations.",
             "-Bridged the gap between technical and business needs by gathering feedback, defining requirements, and translating user stories into actionable tasks.",

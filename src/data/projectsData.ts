@@ -28,7 +28,7 @@ const projectsData: Project[] = [
         technologies: ["TypeScript", "React", "Vite", "TailwindCSS", "CloudFlare"],
         image: 'https://placehold.co/800x400/008073/ffffff?text=Tower+Idle',
         githubUrl: 'https://github.com/NicholasB23/Tower-Idle',
-        liveUrl: 'https://towergame.n-i-ck.dev/',
+        liveUrl: 'https://game.n-i-ck.dev/',
         featured: true,
         keyFeatures: [
             "Progressive resource generation mechanics",
